@@ -8,6 +8,11 @@ use std::fs::OpenOptions;
 fn main() -> rustyline::Result<()> {
     let mut rl = DefaultEditor::new()?;
     
+    // Load history if it exists
+    if rl.load_history(".arc_history").is_err() {
+        // No previous history found
+    }
+    
     println!("Arc OS Shell - AI Native v0.1.0");
     println!("Type 'exit' to quit.");
 
@@ -15,10 +20,11 @@ fn main() -> rustyline::Result<()> {
         let readline = rl.readline("arc-os $ ");
         match readline {
             Ok(line) => {
-                let _ = rl.add_history_entry(line.as_str());
                 let input = line.trim();
-
                 if input.is_empty() { continue; }
+
+                let _ = rl.add_history_entry(input);
+                let _ = rl.save_history(".arc_history"); // Save after each command for safety
 
                 if input == "exit" { break; }
 
