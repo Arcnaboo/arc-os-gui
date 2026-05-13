@@ -6,3 +6,4 @@ edition.workspace = true
 [dependencies]
 core = { path = "../core" }
 tokio = { workspace = true }
+rustyline = "14.0"
