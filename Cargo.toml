@@ -1,0 +1,17 @@
+[workspace]
+resolver = "2"
+members = [
+    "gui",
+    "shell",
+    "core",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["Arc OS Team"]
+
+[workspace.dependencies]
+iced = "0.12"
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
