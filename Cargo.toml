@@ -12,6 +12,6 @@ edition = "2021"
 authors = ["Arc OS Team"]
 
 [workspace.dependencies]
-iced = "0.12"
+iced = { version = "0.12", features = ["image", "advanced"] }
 tokio = { version = "1", features = ["full"] }
 serde = { version = "1", features = ["derive"] }
